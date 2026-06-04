@@ -1,0 +1,69 @@
+// SPDX-FileCopyrightText: 2026-present National Institute of Informatics <sinetstream-support@nii.ac.jp>
+// SPDX-License-Identifier: Apache-2.0
+
+package jp.ad.sinet.sinetstream.common.serialization;
+
+import org.apache.avro.Schema;
+import org.apache.avro.generic.GenericRecord;
+import org.apache.kafka.common.serialization.Deserializer;
+import org.apache.kafka.common.serialization.Serde;
+import org.apache.kafka.common.serialization.Serdes;
+import org.apache.kafka.common.serialization.Serializer;
+
+import java.io.IOException;
+import java.util.Map;
+
+public class SinetStreamSerde implements Serde<GenericRecord> {
+
+    private final Serde<GenericRecord> inner;
+    private final Schema schema;
+
+    public static final String MESSAGE_FORMAT_CONFIG = "sinetstream.message.format";
+
+    static final byte MARKER = (byte) 0xdf;
+    static final int MESSAGE_VERSION = 3;
+    static final int V3_DATA_POS = 4 + 2;
+
+    public SinetStreamSerde() {
+        schema = createSchema();
+        inner = Serdes.serdeFrom(new SinetStreamSerializer(schema), new SinetStreamDeserializer(schema));
+    }
+
+    private static Schema createSchema() {
+        try {
+            var stream = SinetStreamSerde.class.getResourceAsStream("/messageSchema.avsc");
+            if (stream == null) {
+                throw new SinetStreamSerdeException("messageSchema.avsc not found in classpath");
+            }
+            return new Schema.Parser().parse(stream);
+        } catch (IOException e) {
+            throw new SinetStreamSerdeException(e);
+        }
+    }
+
+    public Schema getSchema() {
+        return schema;
+    }
+
+    @Override
+    public Serializer<GenericRecord> serializer() {
+        return inner.serializer();
+    }
+
+    @Override
+    public Deserializer<GenericRecord> deserializer() {
+        return inner.deserializer();
+    }
+
+    @Override
+    public void configure(Map<String, ?> configs, boolean isKey) {
+        inner.serializer().configure(configs, isKey);
+        inner.deserializer().configure(configs, isKey);
+    }
+
+    @Override
+    public void close() {
+        inner.serializer().close();
+        inner.deserializer().close();
+    }
+}

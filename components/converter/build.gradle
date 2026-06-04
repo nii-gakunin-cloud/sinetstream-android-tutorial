@@ -1,0 +1,44 @@
+// SPDX-FileCopyrightText: 2026-present National Institute of Informatics <sinetstream-support@nii.ac.jp>
+// SPDX-License-Identifier: Apache-2.0
+
+plugins {
+    id 'java-library'
+    id 'jvm-test-suite'
+}
+
+group = 'net.sinetstream'
+version = currentVersion
+
+repositories {
+    maven { url = "https://packages.confluent.io/maven/" }
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.kafka:kafka-clients:4.2.0'
+    implementation 'org.apache.kafka:connect-runtime:4.2.0'
+    implementation 'org.apache.avro:avro:1.12.1'
+    implementation 'io.confluent:kafka-connect-avro-data:8.2.0'
+}
+
+configurations {
+    connectDeps {
+        extendsFrom runtimeClasspath
+        exclude group: 'org.apache.kafka'
+        exclude group: 'org.slf4j'
+        exclude group: 'org.apache.logging.log4j'
+    }
+}
+
+tasks.register('copyDeps', Copy) {
+    from configurations.connectDeps
+    into layout.buildDirectory.dir('deps')
+}
+
+testing {
+    suites {
+        test {
+            useJUnitJupiter()
+        }
+    }
+}

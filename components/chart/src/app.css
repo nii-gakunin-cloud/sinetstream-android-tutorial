@@ -1,0 +1,9 @@
+/* SPDX-FileCopyrightText: 2026-present National Institute of Informatics <sinetstream-support@nii.ac.jp> */
+/* SPDX-License-Identifier: Apache-2.0 */
+
+/* Beer CSS ベースのグローバルスタイル */
+/* Beer CSS の import は main.ts で行う */
+
+body {
+  margin: 0;
+}

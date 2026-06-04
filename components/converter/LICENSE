@@ -1,3 +1,4 @@
+
                                  Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
@@ -181,9 +182,8 @@
       boilerplate notice, with the fields enclosed by brackets "[]"
       replaced with your own identifying information. (Don't include
       the brackets!)  The text should be enclosed in the appropriate
-      comment syntax for the file format. Please also get an approval
-      from the project maintainers before using the license boilerplate
-      on new files.
+      comment syntax for the file format. Please also get in touch with
+      your project team to be set up with the correct project structure.
 
       Copyright [yyyy] [name of copyright owner]
 
@@ -198,146 +198,3 @@
       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
       See the License for the specific language governing permissions and
       limitations under the License.
-
-=========================================================================
-THIRD-PARTY LICENSES
-=========================================================================
-
-The container image built from this project is based on the
-sinetstream/tutorial image and bundles the following third-party
-software. Each component retains its original license.
-
-=========================================================================
-Components included via the base image (sinetstream/tutorial)
-=========================================================================
-
--------------------------------------------------------------------------
-Apache Kafka
--------------------------------------------------------------------------
-
-  Copyright The Apache Software Foundation
-  License: Apache License 2.0 (same as above)
-  https://kafka.apache.org/
-
--------------------------------------------------------------------------
-Eclipse Mosquitto
--------------------------------------------------------------------------
-
-  Copyright Eclipse Foundation
-  License: Eclipse Public License 2.0
-  https://mosquitto.org/
-  https://www.eclipse.org/legal/epl-2.0/
-
--------------------------------------------------------------------------
-OpenJDK
--------------------------------------------------------------------------
-
-  License: GNU General Public License version 2 with Classpath Exception
-  https://openjdk.org/
-  https://openjdk.org/legal/gplv2+ce.html
-
--------------------------------------------------------------------------
-Supervisor
--------------------------------------------------------------------------
-
-  Copyright Agendaless Consulting and Contributors
-  License: Repoze Public License (BSD-derived)
-  https://github.com/Supervisor/supervisor
-  https://github.com/Supervisor/supervisor/blob/main/LICENSES.txt
-
-=========================================================================
-Components added by this project
-=========================================================================
-
--------------------------------------------------------------------------
-Nginx
--------------------------------------------------------------------------
-
-  Copyright Igor Sysoev, Nginx, Inc.
-  License: BSD 2-Clause License
-  https://nginx.org/
-
--------------------------------------------------------------------------
-SeaweedFS
--------------------------------------------------------------------------
-
-  Copyright Chris Lu
-  License: Apache License 2.0
-  https://github.com/seaweedfs/seaweedfs
-
--------------------------------------------------------------------------
-Kafka Connect MQTT (Stream Reactor)
--------------------------------------------------------------------------
-
-  Copyright Lenses.io Ltd
-  License: Apache License 2.0
-  https://github.com/lensesio/stream-reactor
-
--------------------------------------------------------------------------
-Confluent Kafka Connect S3
--------------------------------------------------------------------------
-
-  Copyright Confluent, Inc.
-  License: Confluent Community License Agreement, Version 1.0
-  https://github.com/confluentinc/kafka-connect-storage-cloud
-  http://www.confluent.io/confluent-community-license
-
-  The Confluent Community License prohibits use of this software for
-  providing a SaaS, PaaS, or IaaS that competes with Confluent
-  products or services.
-
--------------------------------------------------------------------------
-Confluent components (Apache License 2.0)
--------------------------------------------------------------------------
-
-  Kafka Connect Avro Data, Kafka Avro Serializer,
-  Kafka Schema Serializer, Kafka Schema Registry Client,
-  Kafka Schema Converter, Common Utils
-    Copyright Confluent, Inc.
-    https://github.com/confluentinc/schema-registry
-
-  Log Redactor
-    Copyright Confluent, Inc.
-
-=========================================================================
-Java libraries bundled via Kafka Connect plugins
-=========================================================================
-
-The following libraries are licensed under the Apache License 2.0:
-
-  Apache Avro — Copyright The Apache Software Foundation
-  Jackson JSON — Copyright FasterXML, LLC
-  Google Guava — Copyright Google LLC
-  Apache Commons (Compress, Lang, Codec, IO) — Copyright The Apache Software Foundation
-  Apache HttpComponents (Client 5, Core 5) — Copyright The Apache Software Foundation
-  SnakeYAML — Copyright Andrey Somov
-  Swagger Annotations — Copyright SmartBear Software
-  Google Error Prone Annotations — Copyright Google LLC
-  Google J2ObjC Annotations — Copyright Google LLC
-
-The following libraries are licensed under other terms:
-
-  RE2/J — Copyright Google LLC — BSD 3-Clause License
-  Checker Framework Qualifiers — MIT License
-  minimal-json — Copyright EclipseSource — MIT License
-  JSR 305 Annotations (jsr305) — BSD 3-Clause License
-
-=========================================================================
-JavaScript libraries bundled via compiled frontend assets
-=========================================================================
-
-The following libraries are licensed under the MIT License:
-
-  Chart.js — Copyright Chart.js Contributors
-  chartjs-adapter-date-fns
-  chartjs-plugin-autocolors
-  date-fns — Copyright Sasha Koss and Lesha Koss
-  Svelte — Copyright Rich Harris and contributors
-  svelte-local-storage-store
-  Beer CSS
-  material-dynamic-colors
-  p-limit — Copyright Sindre Sorhus
-
-The following libraries are licensed under other terms:
-
-  lru-cache — Copyright Isaac Z. Schlueter — Blue Oak Model License 1.0.0

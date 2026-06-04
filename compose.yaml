@@ -1,0 +1,6 @@
+services:
+  tutorial:
+    image: harbor.vcloud.nii.ac.jp/sinetstream/android-tutorial:latest
+    ports:
+      - 1883:1883
+      - 80:80
